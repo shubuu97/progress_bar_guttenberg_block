@@ -1,0 +1,29 @@
+.progress-bar__container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+    background-color: #ddd;
+    border-radius: 20px;
+	margin-bottom: 20px;
+}
+
+.progress_bar {
+    background-color: #4CAF50;
+	border-radius: 20px;
+    height: auto;
+}
+
+.progress_bar-frontend {
+    background-color: #4CAF50;
+	border-radius: 20px;
+	height: auto;
+	animation: progress_bar 2s ease-in;
+}
+
+@keyframes progress_bar {
+	0%  { width: 0% }
+}
+
+.mr_10 {
+	margin-right: 10px;
+}
