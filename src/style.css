@@ -10,12 +10,6 @@
 .progress_bar {
     background-color: #4CAF50;
 	border-radius: 20px;
-    height: auto;
-}
-
-.progress_bar-frontend {
-    background-color: #4CAF50;
-	border-radius: 20px;
 	height: auto;
 	animation: progress_bar 2s ease-in;
 }

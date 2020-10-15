@@ -11,7 +11,7 @@ const Save = ( props ) => {
 		<div style={ { height: `${ thickness }px` } } className='progress-bar__container'>
 			<div
 				style={ { width: `${ percentage }%`, backgroundColor: `${ color }` } }
-				className='progress_bar-frontend'
+				className='progress_bar'
 			>
 			</div>
 		</div>

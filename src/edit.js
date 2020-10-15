@@ -1,7 +1,7 @@
 /**
  * External dependencies.
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextControl, Button, PanelBody } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
@@ -15,31 +15,23 @@ const Edit = ( props ) => {
 	const { className, attributes, setAttributes } = props;
 	const { percentage, color, thickness } = attributes;
 
-	/**
-	 * Starts the progress bar
-	 */
-	const startProgressBarHandler = () => {
-		let startPercentage = 0;
-		let interval  = setInterval( () => {
-			if ( startPercentage > percentage ) {
-				clearInterval( interval );
-			} else {
-				setAttributes( { percentage: startPercentage++ } );
-			}
-		}, 10 );
-	}
+	const [ showProgressBar, setShowProgressBar ] = useState( true )
+
+	useEffect(() => {
+		setShowProgressBar( true );
+	}, [ showProgressBar ])
 
 	return (
 		<div>
 			<div style={ { height: `${ thickness }px` } } className='progress-bar__container'>
-				<div
+				{ showProgressBar ? <div
 					style={ { width: `${ percentage }%`, backgroundColor: `${ color }` } }
 					className='progress_bar'
 				>
-				</div>
+				</div> : null }
 			</div>
-			<Button isPrimary={ true } onClick={ startProgressBarHandler } className='mr_10'>
-					START
+			<Button isPrimary={ true } onClick={ () => { setShowProgressBar( false ) } } className='mr_10'>
+				ANIMATE
 			</Button>
 
 			{/* Block Setting */}
